@@ -9,15 +9,15 @@ import gulpif from "gulp-if";
 
 const $ = require('gulp-load-plugins')();
 
-var production = process.env.NODE_ENV === "production";
-var target = process.env.TARGET || "chrome";
-var environment = process.env.NODE_ENV || "development";
+let production = process.env.NODE_ENV === "production";
+let target = process.env.TARGET || "chrome";
+let environment = process.env.NODE_ENV || "development";
 
-var generic = JSON.parse(fs.readFileSync(`./config/${environment}.json`));
-var specific = JSON.parse(fs.readFileSync(`./config/${target}.json`));
-var context = Object.assign({}, generic, specific);
+let generic = JSON.parse(fs.readFileSync(`./config/${environment}.json`));
+let specific = JSON.parse(fs.readFileSync(`./config/${target}.json`));
+let context = Object.assign({}, generic, specific);
 
-var manifest = {
+let manifest = {
   dev: {
     "background": {
       "scripts": [
